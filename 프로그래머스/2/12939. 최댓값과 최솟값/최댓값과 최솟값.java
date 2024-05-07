@@ -1,22 +1,27 @@
-import java.util.*;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
+import java.util.StringTokenizer;
 
 class Solution {
     public String solution(String s) {
         String answer = "";
-
-        // s를 공백으로 구분하여 배열로 받음
-        StringTokenizer st = new StringTokenizer(s);
-        int size = st.countTokens(); 
-        int [] arr = new int [size];
+        int size = 0;
         
-        for(int i = 0; i < size; i++){
-            arr[i] = Integer.parseInt(st.nextToken());
+        List<Integer> list = new ArrayList<>();
+        
+        StringTokenizer st = new StringTokenizer(s, " ");
+        
+        // list에 토큰을 넣음
+        while(st.hasMoreTokens()){
+            list.add(Integer.parseInt(st.nextToken()));
         }
         
-        Arrays.sort(arr);
+        // list를 정렬
+        Collections.sort(list);
         
-        // answer에 최대값과 최소값을 출력
-        answer = arr[0] + " " + arr[size -1];
+        // 최소값과 최대값을 answer에 넣음
+        answer = list.get(0) + " " + list.get(list.size() - 1);
         
         return answer;
     }
