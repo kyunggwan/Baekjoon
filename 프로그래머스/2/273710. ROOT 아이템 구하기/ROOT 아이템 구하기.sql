@@ -1,0 +1,6 @@
+-- 코드를 작성해주세요
+-- Parent 아이템이 null인 아이템이 Root 아이템
+
+SELECT A.ITEM_ID, A.ITEM_NAME
+FROM ITEM_INFO AS A, ITEM_TREE AS B
+WHERE A.ITEM_ID = B.ITEM_ID AND B.PARENT_ITEM_ID IS NULL;
